@@ -1,10 +1,14 @@
 const express = require("express");
+const { initRoutes } = require("./middleware/routes");
+const { initFirebase } = require("./middleware/firebase");
 const app = express();
 const PORT = process.env.PORT || 8000;
-const { initRoutes } = require("./middleware/routes");
 
 // routes
 initRoutes(app);
+
+//firebase
+initFirebase();
 
 // middleware
 app.use(express.json());
